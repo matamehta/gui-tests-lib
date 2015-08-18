@@ -17,7 +17,7 @@ public class YandexPage extends AbstractPage{
 
     public YandexPage open(String url){
         webDriver.get(url);
-        wait.until((WebDriver d) -> d.findElement(By.xpath(SEARCH_BUTTON_PATH)));
+        wait.until((WebDriver d) -> d.findElement(By.xpath(SEARCH_BUTTON_PATH)).isDisplayed());
         return this;
     }
 
@@ -31,6 +31,11 @@ public class YandexPage extends AbstractPage{
     public YandexPage clickSearchButton() {
         WebElement searchButton = webDriver.findElement(By.xpath(SEARCH_BUTTON_PATH));
         searchButton.click();
+        return this;
+    }
+
+    public YandexPage waitForResult(String url) {
+        wait.until((WebDriver d) -> d.findElement(By.xpath(".//a[contains(@href, '" + url + "')]")));
         return this;
     }
 }

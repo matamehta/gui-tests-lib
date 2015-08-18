@@ -15,8 +15,8 @@ public class RulesTest {
         make.atYandexPage()
                 .open("http://www.yandex.ru/")
                 .fillTextField("TestWatcher junit")
-                .clickSearchButton();
-        Thread.sleep(4000);
+                .clickSearchButton()
+                .waitForResult("habrahabr.ru");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class RulesTest {
         make.atYandexPage()
                 .open("http://www.yandex.ru/")
                 .fillTextField("СКА спб")
-                .clickSearchButton();
-        Thread.sleep(4000);
+                .clickSearchButton()
+                .waitForResult("ska.ru");
     }
 }
