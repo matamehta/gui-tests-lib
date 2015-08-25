@@ -4,6 +4,7 @@ import annotations.PageName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by def on 18.08.15.
@@ -17,6 +18,12 @@ public class YandexPage extends AbstractPage{
         super(webDriver);
     }
 
+    @FindBy(name = "text")
+    WebElement searchField;
+
+    @FindBy(xpath = SEARCH_BUTTON_PATH)
+    WebElement searchButton;
+
     public YandexPage open(String url){
         webDriver.get(url);
         wait.until((WebDriver d) -> d.findElement(By.xpath(SEARCH_BUTTON_PATH)).isDisplayed());
@@ -24,14 +31,12 @@ public class YandexPage extends AbstractPage{
     }
 
     public YandexPage fillTextField(String text) {
-        WebElement searchField = webDriver.findElement(By.name("text"));
         searchField.clear();
         searchField.sendKeys(text);
         return this;
     }
 
     public YandexPage clickSearchButton() {
-        WebElement searchButton = webDriver.findElement(By.xpath(SEARCH_BUTTON_PATH));
         searchButton.click();
         return this;
     }

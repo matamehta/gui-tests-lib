@@ -29,7 +29,7 @@
                 <version>2.18.1</version>
                 <configuration>
                     <parallel>classesAndMethods</parallel>
-                    <threadCount>2</threadCount>
+                    <threadCount>1</threadCount>
                 </configuration>
             </plugin>
             <plugin>
