@@ -2,6 +2,8 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.WebDriver;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by def on 18.08.15.
  */
@@ -14,6 +16,13 @@ public class GUITestRule extends TestWatcher {
     protected void starting(Description description) {
         name = description.getMethodName();
         init();
+        Class testClass = description.getTestClass();
+        try {
+            Method m = testClass.getMethod(description.getMethodName());
+            System.out.println(m.toString());
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void finished(Description description) {
@@ -29,7 +38,7 @@ public class GUITestRule extends TestWatcher {
         pageContainer = new PageContainer(webDriver);
     }
 
-    public PageContainer getPages(){
+    public PageContainer atPage(){
         return pageContainer;
     }
 }

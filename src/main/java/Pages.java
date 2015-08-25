@@ -1,17 +1,25 @@
 import org.openqa.selenium.WebDriver;
 import pages.YandexPage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * Created by def on 18.08.15.
+ * Created by def on 23.08.15.
  */
-public class PageContainer {
+public class Pages {
     private WebDriver webDriver;
     private YandexPage yandexPage;
-    public PageContainer(WebDriver webDriver) {
+
+    public Pages(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-    public YandexPage yandex(){
+    public WebDriver getWebDriver() {
+        return webDriver;
+    }
+
+    public YandexPage yandex() {
         if (yandexPage == null) {
             yandexPage = new YandexPage(webDriver);
         }

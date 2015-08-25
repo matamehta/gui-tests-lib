@@ -1,5 +1,6 @@
 package pages;
 
+import annotations.PageName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by def on 18.08.15.
  */
+@PageName("yandex.ru")
 public class YandexPage extends AbstractPage{
 
     private final String SEARCH_BUTTON_PATH = ".//button[*[text()='Найти']]";
