@@ -14,4 +14,7 @@ public class ThreadBasedWebDriverRule extends TestWatcher {
     public Pages atPage(){
         return pages;
     }
+
+    protected void failed(Throwable e, Description description) {
+    }
 }

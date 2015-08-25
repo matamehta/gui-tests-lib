@@ -1,5 +1,3 @@
-import org.openqa.selenium.WebDriver;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
